@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+      
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+<!-- =======================
+Page content START -->
+<section class="pt-5 pb-0">
+	<div class="container">
+		<div class="row g-0 g-lg-5">
+
+			<!-- Left sidebar START -->
+			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-md-6 col-lg-12">
+						<!-- Instructor image START -->
+						<div class="card shadow p-2 mb-4 text-center">
+							<div class="rounded-3">
+								<!-- Image -->
+								{% if not profile.image.url %}
+								<a href="{% url 'userauths:profile-update' %}" class="btn" style="background:linear-gradient(230deg, rgb(255, 0, 157)  0%, rgb(111, 0, 255) 100%), url(assets/img/tag-light.png) no-repeat; color: white;" >Update Profile</a>
+								{% else %}
+								<a href="{{ profile.image.url }}"><img src="{{ profile.image.url }}" class="card-img" alt="course image"></a>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div> 
+				<!-- Row End -->
+			</div>
+			<!-- Left sidebar END -->
+				
+			<!-- Main content START -->
+			<div class="col-lg-8">
+			
+				<!-- Title -->
+                {% if profile.first_name  %}
+					<h5 class="mb-0">Hi, I am</h5>
+                {% else %}
+					<h5 class="mb-0">Hi, {{request.user|title}}, you need to <a href="{% url 'userauths:profile-update' %}" style="color: rgb(0, 119, 255);">update </a> your profile for more features and details</h5>
+                {% endif %}
+				<h1 class="mb-0">{{ profile.first_name }} {{ profile.last_name }}</h1>
+				<p>{{ profile.bio }}</p>
+				<!-- Content -->
+				<p class="mt-4">{{ profile.aboutme }}</p>
+				<!-- Personal info -->
+				<ul class="list-group list-group-borderless">
+					<li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-map-marker-alt text-primary me-1 me-sm-3"></i>Address:</span>
+						<span>{{ profile.country }}</span>
+					</li>
+					<li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span>
+						<span>{{ profile.email }}</span>
+					</li>
+					<li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Phone number:</span>
+						<span>{{ profile.phone }}</span>
+					</li>
+					<li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Website:</span>
+						<span><a href="">{{ profile.website }}</a></span>
+					</li>
+					{% if profile.portfolio_status == True %}
+					<li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-briefcase text-primary me-1 me-sm-3"></i>Portfolio:</span>
+						<span><a href="{% url 'portfolio' profile.user  %}">View My Portfolio</a></span>
+					</li>
+					{% endif %}
+					{% if user.is_authenticated and user == profile.user and profile.portfolio_status == True %}
+                    <li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-paint-brush text-primary me-1 me-sm-3"></i>Upate Portfolio:</span>
+						<span><a href="{% url 'portfolio-update' request.user  %}">Edit Your Portfolio</a></span>
+					</li>
+                    {% endif %}
+				</ul>
+				
+				<!-- Counter START -->
+				
+					<div class="card-body px-3">
+						
+						<ul class="list-inline mb-0">
+						<li class="list-inline-item"> <a class="btn px-2 btn-sm bg-facebook" href=""><i class="fab fa-fw fa-facebook-f"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn px-2 btn-sm bg-instagram-gradient" href=""><i class="fab fa-fw fa-instagram"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn px-2 btn-sm bg-twitter" href=""><i class="fab fa-fw fa-twitter"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn px-2 btn-sm bg-linkedin" href=""><i class="fab fa-fw fa-linkedin-in"></i></a> </li>
+						</ul>
+						{% if profile.user != request.user %}
+						<a href="{% url 'freelance:directs' profile.user %}" class="btn btn-success">Send Message</a>
+						{% endif %}
+					</div>
+				
+				<div class="card-body px-3">
+						
+				</div>
+				
+				<br><br>
+            </div>
+			
+		</div>
+	</div>
+</section>
+{% endblock content %}

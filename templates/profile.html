@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="George W. Park">
+    <meta name="description" content="This project demonstrates how CSS grid (with flexbox and float fallback) can be used to re-create the layout of an Instagram profile page.">
+
+    <!-- Title -->
+    <title>Instagram Profile Layout</title>
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets3/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'assets3/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+</head>
+<body>
+
+    <header>
+        <br><br><br>
+        <div class="container">
+
+            <div class="profile">
+
+                <div class="profile-image">
+
+                    <img src="{{profile.image.url}}" alt="" style="width: 200px; height: 200px;">
+
+                </div>
+
+                <div class="profile-user-settings">
+                        {% if profile.first_name %}
+                        <h6 class="profile-user-name">{{profile.first_name}} {{profile.last_name}}</h6> <br>
+                        {% endif %}
+                        <h5 style="font-size: 15px;" class="profile-user-name">@{{profile.user.username}}</h5>
+
+                        {% if request.user.is_authenticated and request.user == profile.user %}
+                        <a style="text-decoration: none;" href="{% url 'editprofile' %}" class="btn profile-edit-btn">Edit Profile</a>
+                        <a style="text-decoration: none;" href="{% url 'sign-out' %}" class="btn profile-edit-btn">Logout</a>
+                        <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+
+                        
+                        {% endif %}
+                        <br><br>
+                        {% if request.user.is_authenticated and request.user != profile.user %}
+                            {% if follow_status == True %}
+                                <a href="{% url 'follow' profile.user 0 %}" class="btn profile-edit-btn" style="color: red;">Unfollow</a> <br><br>
+                            {% else %}
+                                <a href="{% url 'follow' profile.user 1 %}" class="btn profile-edit-btn" style="color: green;">Follow</a> <br><br>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if request.user.is_authenticated and request.user != profile.user %}
+                                <a href="{% url 'conversation' profile.user  %}" class="btn profile-edit-btn">Message</a> <br><br>
+                        {% endif %}
+                        <br>
+
+                    
+                    
+                    
+                    
+
+                </div>
+
+                
+
+                <div class="profile-bio">
+                    <br>
+                    {% if profile.bio %}
+                    <p><span class="profile-real-name"></span>◉ {{profile.bio}}</p>
+                    {% endif %}
+                    {% if profile.location %}
+                    <p><span class="profile-real-name"></span>◉ {{profile.location}}</p>
+                    {% endif %}
+                    {% if profile.url %}
+                    <p><span class="profile-real-name"></span>◉ <a href="{{profile.url}}">{{profile.url}}</a></p>
+                    {% endif %}
+                    <br><br>
+                    <div class="profile-user-settings">
+                        <a  href="{% url 'profile' profile.user %}"  class="btns profiele-edit-btn">Posts</a>
+                        {% if request.user == profile.user %}
+                        <a  href="{% url 'profilefavourite' profile.user %}"  class="btns profeile-edit-btn">Saved</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <div class="profile-stats">
+
+                    <ul>
+                        <li><span class="profile-stat-count">{{posts_count}}</span> posts</li>
+                        <li><span class="profile-stat-count">{{followers_count}}</span> followers</li>
+                        <li><span class="profile-stat-count">{{following_count}}</span> following</li>
+                    </ul>
+                    <br>
+                    
+                </div>
+
+            </div>
+            <!-- End of profile section -->
+
+        </div>
+        <!-- End of container -->
+
+    </header>
+    
+    <main>
+
+        <div class="container">
+
+            <div class="gallery">
+                
+                {% for post in posts %}
+                <a href="{{post.get_absolute_url}}"><div class="gallery-item" tabindex="0">
+
+                    <img src="{{ post.picture.url }}" class="gallery-image" alt="" style="width: 500px; height: 300px; object-fit: cover;">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> {{post.likes}}</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> {{post.comment.count}}</li>
+                        </ul>
+
+                    </div>
+
+                </div></a>
+                {% endfor %}
+
+                
+
+                
+
+            </div>
+            <!-- End of gallery -->
+
+
+        </div>
+        <!-- End of container -->
+
+    </main>
+    {% endblock content %}

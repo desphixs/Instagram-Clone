@@ -1,0 +1,16 @@
+{
+  "name": "instagram-login-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server .",
+    "deploy": "gh-pages -d ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^2.1.1",
+    "live-server": "^1.2.1"
+  }
+}

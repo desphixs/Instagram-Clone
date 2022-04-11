@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Instagram | Register</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-demo"></div>
+      <div class="form-data">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="logo">
+            <img src="{% static 'assets2/images/logo.png' %}" alt="logo">
+          </div>
+          <!-- <input type="text" placeholder="Phone number, username, or email"> -->
+          <!-- <input type="password" placeholder="Password"> -->
+          {{form.username}}
+          {{form.email}}
+          {{form.password1}}
+          {{form.password2}}
+          <button class="form-btn" type="submit">Log in</button>
+
+
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          <span class="has-separator">Or</span>
+          <a class="facebook-login" href="#">
+            <i class="fab fa-facebook-square"></i> Log in with Facebook
+          </a>
+          <a class="password-reset" href="#">Forgot password?</a>
+        </form>
+        <div class="sign-up">
+          Don't have an account? <a href="{% url 'sign-in' %}">Sign In</a>
+        </div>
+        <div class="get-the-app">
+          <span>Get the app.</span>
+          <div class="badges">
+            <img src="{% static 'assets2/images/app-store.png' %}" alt="app-store badge">
+            <img src="{% static 'assets2/images/google-play.png' %}" alt="google-play badge">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>

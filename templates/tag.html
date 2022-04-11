@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="George W. Park">
+    <meta name="description" content="This project demonstrates how CSS grid (with flexbox and float fallback) can be used to re-create the layout of an Instagram profile page.">
+
+    <!-- Title -->
+    <title>Instagram Profile Layout</title>
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets3/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'assets3/css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+</head>
+<body>
+
+    <header>
+        <div>
+         <h1 style="font-size: 50px; margin-top: 100px; text-align:center; font-weight: bold; margin-bottom: 50px;">#{{tag.title|title}}</h1>
+        
+        </div>
+    </header>
+    <main>
+
+        <div class="container">
+
+            <div class="gallery">
+                
+                {% for post in posts %}
+                <a href="{{post.get_absolute_url}}"><div class="gallery-item" tabindex="0">
+
+                    <img src="{{ post.picture.url }}" class="gallery-image" alt="" style="width: 500px; height: 300px; object-fit: cover;">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> {{post.likes}}</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> {{post.comment.count}}</li>
+                        </ul>
+
+                    </div>
+
+                </div></a>
+                {% endfor %}
+
+                
+
+                
+
+            </div>
+            <!-- End of gallery -->
+
+            <div class="loader"></div>
+
+        </div>
+        <!-- End of container -->
+
+    </main>
+
+
+{% endblock content %}
