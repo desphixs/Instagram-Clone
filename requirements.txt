@@ -15,6 +15,7 @@ django-static-fontawesome==5.14.0.0
 django-storages==1.12.3
 gunicorn==20.0.4
 h11==0.9.0
+Pillow==8.3.1
 h2==3.2.0
 hpack==3.0.0
 hstspreload==2021.8.1
