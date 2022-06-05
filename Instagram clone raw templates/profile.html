@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="George W. Park">
+    <meta name="description" content="This project demonstrates how CSS grid (with flexbox and float fallback) can be used to re-create the layout of an Instagram profile page.">
+
+    <!-- Title -->
+    <title>Instagram Profile Layout</title>
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="assets3/css/reset.css">
+    <link rel="stylesheet" href="assets3/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+</head>
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <div class="profile">
+
+                <div class="profile-image">
+
+                    <img src="assets3/images/desphixs Main.jpg" alt="" style="width: 200px; height: 200px;">
+
+                </div>
+
+                <div class="profile-user-settings">
+
+                    <h1 class="profile-user-name">Destiny Franks</h1>
+
+                    <button class="btn profile-edit-btn">Edit Profile</button>
+
+                    <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+
+                </div>
+
+                <div class="profile-stats">
+
+                    <ul>
+                        <li><span class="profile-stat-count">164</span> posts</li>
+                        <li><span class="profile-stat-count">300k</span> followers</li>
+                        <li><span class="profile-stat-count">206</span> following</li>
+                    </ul>
+
+                </div>
+
+                <div class="profile-bio">
+
+                    <p><span class="profile-real-name">Destiny Franks</span> Welcome to my Instagram Page, Let learn coding together 📷✈️🏕️</p>
+
+                </div>
+
+            </div>
+            <!-- End of profile section -->
+
+        </div>
+        <!-- End of container -->
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <div class="gallery">
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 89</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 5</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-type">
+
+                        <span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 42</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-type">
+
+                        <span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 38</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-type">
+
+                        <span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 47</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 94</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 3</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-type">
+
+                        <span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 52</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 4</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 66</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-type">
+
+                        <span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 45</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 34</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 41</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="gallery-item" tabindex="0">
+
+                    <img src="assets3/images/login-img.jpg" class="gallery-image" alt="">
+
+                    <div class="gallery-item-type">
+
+                        <span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
+
+                    </div>
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 30</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- End of gallery -->
+
+            <div class="loader"></div>
+
+        </div>
+        <!-- End of container -->
+
+    </main>
+
+</body>
+</html>
